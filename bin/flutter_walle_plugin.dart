@@ -38,7 +38,6 @@ void main(args) {
   } else {
     throw ArgumentError('没有选择命令');
   }
-
 }
 
 class BuildApk {
@@ -56,7 +55,7 @@ class BuildApk {
 
     if (pluginPath != null) {
       jarFilePath =
-          path.join(pluginPath, 'bin/walle-cli-all.jar').split('=')[1];
+      path.join(pluginPath, 'bin/walle-cli-all.jar').split('=')[1];
     }
   }
 
@@ -74,12 +73,9 @@ class BuildApk {
       });
 
       result.exitCode.then((exitCode) {
-        if (!isErr) {
-          print('----------------------------编译成功----------------------------');
-          setChannel(isSetInfo: isSetInfo);
-        } else {
-          print('----------------------------编译失败----------------------------');
-        }
+        print(
+            '----------------------------编译成功 :code ${exitCode}----------------------------');
+        setChannel(isSetInfo: isSetInfo);
       });
     });
   }
